@@ -71,6 +71,7 @@ def initialize_driver():
     )
     return driver
 
+
 def is_file_url(url):
     u = url.lower()
     return any(x in u for x in [".pdf", ".doc", ".docx", ".xls", ".xlsx", ".png", ".jpg", ".jpeg"])
