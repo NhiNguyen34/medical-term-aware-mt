@@ -49,32 +49,6 @@ def setup_logger(log_path):
     logger.addHandler(ch)
     return logger
 
-def add_driver_options(options):
-    chrome_options = Options()
-    for opt in options:
-        chrome_options.add_argument(opt)
-    return chrome_options
-
-def initialize_driver():
-    options = add_driver_options([
-        "--headless",
-        "--no-sandbox",
-        "--start-fullscreen",
-        "--allow-insecure-localhost",
-        "--disable-dev-shm-usage",
-        "user-agent=Chrome/116.0.5845.96"
-    ])
-    options.binary_location = CHROME_BINARY_LOCATION
-    driver = webdriver.Chrome(
-        executable_path=CHROMEDRIVER_BINARY_LOCATION,
-        options=options
-    )
-    return driver
-
-
-def is_file_url(url):
-    u = url.lower()
-    return any(x in u for x in [".pdf", ".doc", ".docx", ".xls", ".xlsx", ".png", ".jpg", ".jpeg"])
 
 def clean_text(text):
     if not text:
